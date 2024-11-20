@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Silkscreen Bold;
+    src: url("./fonts/Silkscreen-Bold.ttf");
+}
+
+@font-face {
+    font-family: Silkscreen Regular;
+    src: url("./fonts/Silkscreen-Regular.ttf");
+}
+
+@font-face {
+    font-family: Red Hat;
+    src: url("./fonts/RedHat.ttf");
+}
+
+body, html {
+    background-color: #121212;
+    color: #fff;
+    font-family: Red Hat;
+}
