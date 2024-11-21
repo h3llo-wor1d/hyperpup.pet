@@ -25,8 +25,7 @@ export default function Links() {
             <Flex justify={"center"}>
                 <Profile>
                     <img src={"./assets/pfp.png"} alt="pfp" height="150px"/>
-                </Profile>
-                
+                </Profile>  
             </Flex>
             <Header>
                 HYPERPUP

@@ -1,9 +1,4 @@
 @font-face {
-    font-family: Silkscreen Bold;
-    src: url("./fonts/Silkscreen-Bold.ttf");
-}
-
-@font-face {
     font-family: Silkscreen Regular;
     src: url("./fonts/Silkscreen-Regular.ttf");
 }
@@ -13,8 +8,29 @@
     src: url("./fonts/RedHat.ttf");
 }
 
+@font-face {
+    font-family: Pixel Mix;
+    src: url("./fonts/pixelmix.ttf");
+}
+
+@font-face {
+    font-family: "Thaleah Fat";
+    src: url("./fonts/ThaleahFat.ttf");
+}
+
+@font-face {
+    font-family: "Leander";
+    src: url("./fonts/Leander.ttf");
+}
+
+@font-face {
+    font-family: "Gothic Pixels";
+    src: url("./fonts/GothicPixels.ttf");
+}
+
 body, html {
     background-color: #121212;
     color: #fff;
     font-family: Red Hat;
+    margin: 0;
 }
