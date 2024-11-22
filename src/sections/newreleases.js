@@ -55,18 +55,19 @@ export default function NewReleases(props) {
                     <Child>
                         <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px"}} wrap>
                             <Release 
-                            img="pounce.png" 
-                            name="POUNCE TO IT (w/BUGCORE)"
-                            links={[
-                                {
-                                    platform: "Apple",
-                                    href: false
-                                },
-                                {
-                                    platform: "Spotify",
-                                    href: false //placeholder
-                                }
-                            ]}
+                                img="pounce.png" 
+                                name="POUNCE TO IT (w/BUGCORE)"
+                                links={[
+                                    {
+                                        platform: "Apple",
+                                        href: false
+                                    },
+                                    {
+                                        platform: "Spotify",
+                                        href: false //placeholder
+                                    }
+                                ]}
+                                unlock={new Date(1732860000)}
                             />
                             <Release 
                             img="tail.png" 
@@ -81,6 +82,7 @@ export default function NewReleases(props) {
                                     href: false //placeholder
                                 }
                             ]}
+                            unlock={new Date(1732255200)}
                             />
                             <Release 
                             img="bugz.png" 
