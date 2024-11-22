@@ -70,8 +70,7 @@ export default function Release(props) {
                     {image: `./assets/covers/${props.img}`, speed: -30}
                 ]}
                 >
-                    {props.unlock !== undefined && props.unlock !== Date.now() &&
-                    
+                    {props.unlock !== undefined && Date.now() < parseInt(props.unlock.getTime())*1000 &&
                     <UnlockOverlay>
                         <Overlay>
                             This song will release in <Countdown date={props.unlock*1000} renderer={renderer} />

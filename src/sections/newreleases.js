@@ -75,11 +75,11 @@ export default function NewReleases(props) {
                             links={[
                                 {
                                     platform: "Apple",
-                                    href: false
+                                    href: "https://music.apple.com/us/album/milk-in-da-bowl-%CF%89/1780119121?i=1780119122"
                                 },
                                 {
                                     platform: "Spotify",
-                                    href: false //placeholder
+                                    href: "https://open.spotify.com/album/5Q9i4ENrtaheEukByK12er" //placeholder
                                 }
                             ]}
                             unlock={new Date(1732255200)}
