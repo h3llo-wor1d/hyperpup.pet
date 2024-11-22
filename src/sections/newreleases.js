@@ -1,8 +1,44 @@
 import { ParallaxBanner } from "react-scroll-parallax"
 import styled from "styled-components"
-import { Flex } from "antd"
+import { Flex, Spin } from "antd"
 import Release from "../components/Release"
+import { Suspense, useEffect, useState } from "react"
+import { LoadingOutlined } from '@ant-design/icons';
 
+const getRel = () => {
+    return new Promise((resolve) => {
+        fetch("https://raw.githubusercontent.com/h3llo-wor1d/static.hyperpup.pet/refs/heads/main/feed.json")
+            .then(d => d.json())
+            .then(d1 => {
+                resolve(d1)
+            });
+    })
+}
+const LazyReleases = () => {
+    const [releases, setReleases] = useState(null);
+
+    useEffect(() => {
+        getRel().then((d) => {
+            console.log(d.releases[0])
+            setReleases(d.releases);
+        })
+    }, [])
+
+    return (
+        <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px"}} wrap>
+            {
+                releases === null ?  <Spin indicator={<LoadingOutlined spin />} size="large" />:
+                releases.map(d => <Release 
+                    img={d.img}
+                    name={d.name}
+                    links={d.links}
+                    unlock={d.unlock ? new Date(d.unlock) : undefined}
+                    />
+                )
+            }
+        </Flex>
+    )
+}
 export default function NewReleases(props) {
 
     const Parent = styled.div `
@@ -53,67 +89,9 @@ export default function NewReleases(props) {
                 ]}
                 >
                     <Child>
-                        <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px"}} wrap>
-                            <Release 
-                                img="pounce.png" 
-                                name="POUNCE TO IT (w/BUGCORE)"
-                                links={[
-                                    {
-                                        platform: "Apple",
-                                        href: false
-                                    },
-                                    {
-                                        platform: "Spotify",
-                                        href: false //placeholder
-                                    }
-                                ]}
-                                unlock={new Date(1732860000)}
-                            />
-                            <Release 
-                            img="tail.png" 
-                            name="MILK IN DA BOWL"
-                            links={[
-                                {
-                                    platform: "Apple",
-                                    href: "https://music.apple.com/us/album/milk-in-da-bowl-%CF%89/1780119121?i=1780119122"
-                                },
-                                {
-                                    platform: "Spotify",
-                                    href: "https://open.spotify.com/album/5Q9i4ENrtaheEukByK12er" //placeholder
-                                }
-                            ]}
-                            unlock={new Date(1732255200)}
-                            />
-                            <Release 
-                            img="bugz.png" 
-                            name="BUGZINYRSKIN"
-                            links={[
-                                {
-                                    platform: "Apple",
-                                    href: "https://music.apple.com/us/album/bugzinyrskin/1771331001"
-                                },
-                                {
-                                    platform: "Spotify",
-                                    href: "https://open.spotify.com/album/3lekCd1FbVNZ31F7YeiLjz"
-                                }
-                            ]}
-                            />
-                            <Release 
-                            img="mine.png" 
-                            name="You're Mine (w/Awerewa)"
-                            links={[
-                                {
-                                    platform: "Apple",
-                                    href: "https://music.apple.com/us/album/youre-mine-feat-hatsune-miku-awerewa/1757723149"
-                                },
-                                {
-                                    platform: "Spotify",
-                                    href: "https://open.spotify.com/album/4tHLqHH37QeahOvyorVqQA?si=A7tiyXW6R5yLxUbjpMnrBg"
-                                }
-                            ]}
-                            />
-                        </Flex>
-                        
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <LazyReleases />
+                        </Suspense>
                     </Child>
                     
                 </ParallaxBanner>
