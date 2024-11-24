@@ -19,7 +19,6 @@ const LazyReleases = () => {
 
     useEffect(() => {
         getRel().then((d) => {
-            console.log(d.releases[0])
             setReleases(d.releases);
         })
     }, [])

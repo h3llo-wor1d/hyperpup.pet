@@ -55,9 +55,9 @@ export default function Release(props) {
           // Render a countdown
           return <span>
             {days !== 0 && `${days} days`} 
-            {days === 0 && hours !== 0 && `${hours} hours`} 
-            {hours === 0 && minutes !== 0 && `${minutes} minutes`} 
-            {minutes === 0 && `${seconds} seconds`}
+            {days === 0 && hours !== 0 `${hours} hours`} 
+            {days === 0 && hours === 0 && minutes !== 0 && `${minutes} minutes`} 
+            {days === 0 && hours === 0 && minutes === 0 && seconds !== 0 && `${seconds} seconds`}
         </span>
         }
       };
