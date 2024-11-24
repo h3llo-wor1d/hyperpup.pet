@@ -32,6 +32,7 @@ const LazyReleases = () => {
                     name={d.name}
                     links={d.links}
                     unlock={d.unlock ? new Date(d.unlock) : undefined}
+                    presave={d.presave ? d.presave : undefined}
                     />
                 )
             }

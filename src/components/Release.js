@@ -48,6 +48,14 @@ export default function Release(props) {
     }
     `
 
+    const Button = styled.div `
+    margin-top: 6px;
+    &:hover {
+    opacity: .75;
+    cursor: pointer;
+    }
+    `
+
     const renderer = ({ days, hours, minutes, seconds, completed }) => {
         if (completed) {
             return <div></div>
@@ -60,7 +68,13 @@ export default function Release(props) {
             {days === 0 && hours === 0 && minutes === 0 && seconds !== 0 && `${seconds} seconds`}
         </span>
         }
-      };
+    };
+
+    const handler = () => {
+        if (props.presave !== undefined) {
+            window.open(props.presave, "_blank");
+        }
+    }
 
     return (
         <Parent>
@@ -73,7 +87,8 @@ export default function Release(props) {
                     {props.unlock !== undefined && Date.now() < parseInt(props.unlock.getTime())*1000 &&
                     <UnlockOverlay>
                         <Overlay>
-                            This song will release in <Countdown date={props.unlock*1000} renderer={renderer} />
+                            This song will release in <Countdown date={props.unlock*1000} renderer={renderer} /><br/>
+                            {props.presave !== undefined && <Button onClick={handler}>Presave now</Button>}
                         </Overlay>
                     </UnlockOverlay>
                     }
