@@ -9,6 +9,7 @@ import Home from './pages/home';
 import './style/index.css';
 import Links from './pages/links';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import Release from './pages/releasepage';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/links",
     element: <Links />
+  },
+  {
+    path: "/r/:title",
+    element: <Release />
   }
 ]);
 
