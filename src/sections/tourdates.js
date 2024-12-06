@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import TourDate from "../components/TourDate"
 import { ParallaxBanner } from "react-scroll-parallax"
 import { Flex } from "antd"
 
