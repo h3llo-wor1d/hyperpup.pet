@@ -4,6 +4,7 @@ import { Flex, Spin } from "antd"
 import Release from "../components/Release"
 import { Suspense, useEffect, useState } from "react"
 import { LoadingOutlined } from '@ant-design/icons';
+import Scroller from "../components/Scroller"
 
 const getRel = () => {
     return new Promise((resolve) => {
@@ -52,9 +53,8 @@ export default function NewReleases(props) {
     width: 100%;
     overflow: hidden;
     text-wrap: nowrap;
-    height: 20px;
+    height: 30px;
     font-size: 20px;
-    font-family: Pixel Mix;
     @media screen and (max-width: 900px) {
         font-size: 15px;
     } 
@@ -77,7 +77,7 @@ export default function NewReleases(props) {
     return (
         <Parent>
             <Header>
-                {Array(25).fill(0).map(i => "New Releases ")}
+                <Scroller text="new releases new releases new releases&nbsp;" />
             </Header>
             <Container>
                 <ParallaxBanner

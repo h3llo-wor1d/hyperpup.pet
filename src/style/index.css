@@ -28,6 +28,11 @@
     src: url("./fonts/GothicPixels.ttf");
 }
 
+@font-face {
+    font-family: "VCR OSD";
+    src: url("./fonts/VCROsd.ttf");
+}
+
 body, html {
     background-color: #121212;
     color: #fff;

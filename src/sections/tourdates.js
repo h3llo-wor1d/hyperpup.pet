@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { ParallaxBanner } from "react-scroll-parallax"
 import { Flex } from "antd"
+import Scroller from "../components/Scroller"
 
 export default function TourDates(props) {
     const Container = styled.div `
@@ -10,14 +11,13 @@ export default function TourDates(props) {
         height: fit-content;
     `
     const Header = styled.div `
-        font-family: Pixel Mix;
         width: calc(100vw - 40px);
         margin-left: 20px;
         margin-right: 20px;
         text-align: left;
         overflow: hidden;
         text-wrap: nowrap;
-        height: 20px;
+        height: 30px;
         font-size: 20px;
         @media screen and (max-width: 900px) {
             font-size: 15px;
@@ -42,7 +42,7 @@ export default function TourDates(props) {
     return (
         <div>
             <Header>
-                {Array(25).fill(0).map(i => "Tour Dates ")}
+                <Scroller text="tour dates tour dates tour dates tour dates&nbsp;" />
             </Header>
             <Container>
                 <ParallaxBanner
