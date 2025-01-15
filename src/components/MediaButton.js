@@ -4,13 +4,15 @@ import Soundcloud from '../svg/soundcloud.svg';
 import Apple from '../svg/applemusic.svg';
 import Bluesky from '../svg/bluesky.svg';
 import Discord from '../svg/discord.svg';
+import YoutubeMusic from '../svg/ytmusic.svg';
 
 const MediaMap = {
     Spotify: Spotify,
     Soundcloud: Soundcloud,
     Apple: Apple,
     Bluesky: Bluesky,
-    "Discord" : Discord
+    "Discord" : Discord,
+    YoutubeMusic: YoutubeMusic
 }
 
 export default function MediaButton(props) {

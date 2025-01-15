@@ -21,11 +21,15 @@ export default function Footer() {
                     height={"20px"}
                 />
                 <MediaButton 
+                    platform={"YoutubeMusic"}
+                    href={"https://www.youtube.com/channel/UC7k0CS7qUUriW-SQa8pMcvQ"}
+                    height={"20px"}
+                />
+                <MediaButton 
                     platform={"Spotify"}
                     href={"https://open.spotify.com/artist/2KYbArEPLKH4MpXX2eDjk2"}
                     height={"20px"}
                 />
-                
             </Flex>
             <div style={{textAlign: "center", fontSize: "8pt", marginTop: "6px"}}>
                 Copyright Alienfish 2024. This website was made from scratch 

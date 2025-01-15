@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { ParallaxBanner } from "react-scroll-parallax"
 import { Flex } from "antd"
 import Scroller from "../components/Scroller"
+import TourDate from "../components/TourDate"
 
 export default function TourDates(props) {
     const Container = styled.div `
@@ -64,9 +65,7 @@ export default function TourDates(props) {
                                     image="./assets/fwa.png"
                                 />
                             */}
-                            <Placeholder>
-                                No tour dates yet!
-                            </Placeholder>
+                            <Placeholder>None Yet! Check Back Later...</Placeholder>
                         </Flex>
                     </Child>
                     
