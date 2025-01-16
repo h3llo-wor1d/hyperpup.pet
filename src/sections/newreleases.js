@@ -25,19 +25,15 @@ const LazyReleases = () => {
     }, [])
 
     return (
-        <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px"}} wrap>
-            {
-                releases === null ?  <Spin indicator={<LoadingOutlined spin />} size="large" />:
-                releases.map(d => <Release 
-                    img={d.img}
-                    name={d.name}
-                    links={d.links}
-                    unlock={d.unlock ? new Date(d.unlock) : undefined}
-                    presave={d.presave ? d.presave : undefined}
-                    />
-                )
-            }
-        </Flex>
+        releases === null ?  <Spin indicator={<LoadingOutlined spin />} size="large" />:
+        releases.map(d => <Release 
+            img={d.img}
+            name={d.name}
+            links={d.links}
+            unlock={d.unlock ? new Date(d.unlock) : undefined}
+            presave={d.presave ? d.presave : undefined}
+            />
+        )            
     )
 }
 export default function NewReleases(props) {
@@ -90,7 +86,9 @@ export default function NewReleases(props) {
                 >
                     <Child>
                         <Suspense fallback={<div>Loading...</div>}>
-                            <LazyReleases />
+                            <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px"}} wrap>
+                                <LazyReleases />
+                            </Flex>
                         </Suspense>
                     </Child>
                     
