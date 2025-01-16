@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import SocialButton from "../components/SocialButton";
+import { Helmet } from 'react-helmet';
 
 export default function Release() {
     const { title } = useParams();
@@ -39,30 +40,46 @@ export default function Release() {
 
     return (
         <div style={{margin: "30px"}}>
-            {d !== null && 
-            <div>
-                <Flex justify={"center"}>
-                    <Profile>
-                        <img src={`${window.location.origin}/assets/covers/${d.img}`} alt={d.img} height="250px"/>
-                    </Profile>  
-                </Flex>
-                <Header>
-                    Stream {d.name}
-                </Header><br/>
-                <Flex justify={"center"} align={"center"} vertical gap={"15px"}>
-                    <SocialButton 
-                        name="Apple Music" 
-                        url={d.links[0].href}
-                        color="#FA233B" 
-                    />
-                    <SocialButton 
-                        name="Spotify" 
-                        url={d.links[1].href}
-                        color="#1ED760" 
-                    />
-                </Flex>
-            </div>
-            }
+        {d !== null && 
+        <div>
+            <Helmet>
+                <meta itemprop="name" content={`Stream ${d.name}`} />
+                <meta itemprop="description" content=""/>
+                <meta itemprop="image" content={`${window.location.origin}/assets/covers/${d.img}`} />
+
+                <meta property="og:url" content="https://www.hyperpup.pet" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={`Stream ${d.name}`} />
+                <meta property="og:description" content="" />
+                <meta property="og:image" content={`${window.location.origin}/assets/covers/${d.img}`} />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`Stream ${d.name}`} />
+                <meta name="twitter:description" content="" />
+                <meta name="twitter:image" content={`${window.location.origin}/assets/covers/${d.img}`} />
+            </Helmet>
+            <Flex justify={"center"}>
+                <Profile>
+                    <img src={`${window.location.origin}/assets/covers/${d.img}`} alt={d.img} height="250px"/>
+                </Profile>  
+            </Flex>
+            <Header>
+                Stream {d.name}
+            </Header><br/>
+            <Flex justify={"center"} align={"center"} vertical gap={"15px"}>
+                <SocialButton 
+                    name="Apple Music" 
+                    url={d.links[0].href}
+                    color="#FA233B" 
+                />
+                <SocialButton 
+                    name="Spotify" 
+                    url={d.links[1].href}
+                    color="#1ED760" 
+                />
+            </Flex>
         </div>
+        }
+    </div>
     )
 }
