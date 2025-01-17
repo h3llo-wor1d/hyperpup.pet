@@ -68,13 +68,18 @@ export default function Release() {
             </Header><br/>
             <Flex justify={"center"} align={"center"} vertical gap={"15px"}>
                 <SocialButton 
+                    name="Youtube Music" 
+                    url={d.links[1].href}
+                    color="#FA233B" 
+                />
+                <SocialButton 
                     name="Apple Music" 
                     url={d.links[0].href}
                     color="#FA233B" 
                 />
                 <SocialButton 
                     name="Spotify" 
-                    url={d.links[1].href}
+                    url={d.links[2].href}
                     color="#1ED760" 
                 />
             </Flex>
