@@ -1,3 +1,4 @@
+import Header from "../components/Header"
 import About from "../sections/about"
 import Footer from "../sections/footer"
 import NewReleases from "../sections/newreleases"
@@ -7,7 +8,7 @@ export default function Home() {
     
     return (
         <div>
-            <About /><br/>
+            <Header/><br/>
             <NewReleases /><br/>
             <TourDates /><br/>
             <Footer />
