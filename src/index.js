@@ -11,6 +11,7 @@ import Links from './pages/links';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Release from './pages/releasepage';
 import NotFound from './pages/404';
+import TrailingCursor from './hooks/trailingcursor';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ParallaxProvider>
+      {(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) !== true &&  <TrailingCursor/> }
       <RouterProvider router={router} />
     </ParallaxProvider>
   </React.StrictMode>
