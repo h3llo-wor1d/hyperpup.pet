@@ -6,9 +6,10 @@ import SocialButton from "../components/SocialButton";
 const Profile = styled.div `
 height: 150px;
 width: 150px;
-background-color: #6DAE77;
 text-align: center;
 border-radius: 500px;
+background-color: #6DAE77;
+border: 5px solid #6DAE77;
 overflow: hidden;
 `
 
@@ -19,9 +20,13 @@ font-family: Silkscreen Regular;
 font-size: 30pt;
 margin-bottom: 15px;
 `
+
+const Page = styled.div `
+margin: 20px 20px 20px 20px;
+`
 export default function Links() {
     return (
-        <div>
+        <Page>
             <Flex justify={"center"}>
                 <Profile>
                     <img src={"./assets/pfp.png"} alt="pfp" height="150px"/>
@@ -36,6 +41,16 @@ export default function Links() {
                     name="Bluesky"
                     url="https://bsky.app/profile/hyperpup.pet"
                     color="#0D85FE"
+                />
+                <SocialButton 
+                    name="Instagram"
+                    url="https://www.instagram.com/hyperpup.pet/"
+                    color="#E93885"
+                />
+                <SocialButton 
+                    name="Twitter"
+                    url="https://x.com/hyp3rpup"
+                    color="#1DA1F2"
                 />
                 <SocialButton 
                     name="Discord"
@@ -60,6 +75,6 @@ export default function Links() {
                     color="#1ED760" 
                 />
             </Flex>
-        </div>
+        </Page>
     )
 }

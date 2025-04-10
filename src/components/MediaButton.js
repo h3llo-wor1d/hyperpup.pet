@@ -5,6 +5,9 @@ import Apple from '../svg/applemusic.svg';
 import Bluesky from '../svg/bluesky.svg';
 import Discord from '../svg/discord.svg';
 import YoutubeMusic from '../svg/ytmusic.svg';
+import Instagram from '../svg/instagram.svg';
+import Twitter from '../svg/twitter.svg';
+
 import SVG from "react-inlinesvg";
 
 const MediaMap = {
@@ -13,7 +16,9 @@ const MediaMap = {
     Apple: Apple,
     Bluesky: Bluesky,
     "Discord" : Discord,
-    YoutubeMusic: YoutubeMusic
+    YoutubeMusic: YoutubeMusic,
+    Instagram: Instagram,
+    Twitter: Twitter
 }
 
 const HoverColors = {
@@ -22,7 +27,9 @@ const HoverColors = {
     Spotify: "#1ED760",
     Bluesky: "#0D85FE",
     Soundcloud: "#ff5500",
-    Discord: "#5865F2"
+    Discord: "#5865F2",
+    Instagram: "#E93885",
+    Twitter: "#1DA1F2"
 }
 
 export default function MediaButton(props) {

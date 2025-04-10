@@ -5,6 +5,8 @@ import Soundcloud from '../svg/soundcloud.svg';
 import Apple from '../svg/applemusic.svg';
 import YoutubeMusic from '../svg/ytmusic.svg';
 import Discord from '../svg/discord.svg';
+import Instagram from '../svg/instagram.svg';
+import Twitter from '../svg/twitter.svg';
 
 import { Flex } from "antd";
 
@@ -22,7 +24,9 @@ const IconMap = {
     "SoundCloud" : Soundcloud,
     "Apple Music" : Apple,
     "Discord" : Discord,
-    "Youtube Music": YoutubeMusic
+    "Youtube Music": YoutubeMusic,
+    "Instagram": Instagram,
+    "Twitter": Twitter
 }
 
 export default function SocialButton(props) {
