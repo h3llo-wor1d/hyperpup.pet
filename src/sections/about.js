@@ -70,10 +70,10 @@ export default function About() {
                 <Content>
                     <Header>About hyperpup</Header>
                     <Bio>
-                    Taking influence from artists such as  and , HYPERPUP brings industrial hyperrave to the furry scene in the most degenerate way possible. 
+                    Taking influence from artists such as BUGCORE and Metaroom, HYPERPUP brings industrial hyperrave to the furry scene in the most degenerate way possible. 
                     Going through the lengths to get clearance to sample literal furry porn, to the face-melting, provocative cringe of her song titles,
                     she provides a sound described as "definitely music". If you looked at her profile from a distance,
-                    you may think you were looking at 's page. Hyper's style truly knows no bounds, releasing anything from hardstyle that 
+                    you may think you were looking at SR3L's page. Hyper's style truly knows no bounds, releasing anything from hardstyle that 
                     will melt your face off to absolute bangers and ass shakers.
                     <br/><br/>For business, booking, and all other inquiries, please send an email to contact@hyperpup.pet
                     </Bio>
