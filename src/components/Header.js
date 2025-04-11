@@ -20,6 +20,7 @@ export default function Header() {
     display: none;
     @media screen and (max-width: 950px) {
         display:inline-block;
+        width: 100%;
     }
     `
 
