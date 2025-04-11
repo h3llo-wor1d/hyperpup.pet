@@ -35,6 +35,7 @@ export default function About() {
     display: flex;
     width: 25%;
     @media screen and (max-width: 900px) {
+        display: none;
         width: 100%;
         height: 300px;
         overflow: hidden;
@@ -69,24 +70,18 @@ export default function About() {
                 <Content>
                     <Header>About hyperpup</Header>
                     <Bio>
-                        Making her official debut as HYPERPUP with the energetic release of 
-                        LOST IN SPACE featuring <LinkButton onClick={() => handle("https://bsky.app/profile/awerewa.net")}>Awerewa</LinkButton> in 
-                        early March 2024, Atlanta-born tranny Willow Rubenstein has made music specifically for silly little autistic freaks like YOU to stim to. If you enjoy her music, 
-                        you have good taste, and you will likely live an extra 25 years due to the de-aging nature of her art. 
-                        If you would like to book her for a show, or for other general inquiries, you may contact her via her official email, <LinkButton onClick={() => handle("mailto:contact@hyperpup.pet")}>contact@hyperpup.pet</LinkButton>
-                        <br/><br/>
-                        The vibrant artwork featured on her work is created by her boyfriend, <LinkButton onClick={() => handle("https://bsky.app/profile/aliens.bsky.social")}>Neptune</LinkButton>, 
-                        who has been her artist for 2 years, and has been the designer of all of her OCs (Original Characters) since 2022. If you like his art, his commissions
-                        are always open, you can contact him via <LinkButton onClick={() => handle("https://bsky.app/profile/aliens.bsky.social")}>Bluesky</LinkButton> or <LinkButton onClick={() => handle("https://discord.gg/FUuvFfwkCz")}>the official Alienfish Discord Server</LinkButton>.
-                        <br/><br/>
-                        The fagslop featured on this website was taken from e621, and you can find the original works by clicking <LinkButton onClick={() => handle("https://e621.net/posts/4356911")}>here</LinkButton> and <LinkButton onClick={() => handle("https://e621.net/posts/4366660")}>here</LinkButton>.
-                        Please open with caution, as the originals are significantly more sexual than the cropped versions on this website.
+                    Taking influence from artists such as  and , HYPERPUP brings industrial hyperrave to the furry scene in the most degenerate way possible. 
+                    Going through the lengths to get clearance to sample literal furry porn, to the face-melting, provocative cringe of her song titles,
+                    she provides a sound described as "definitely music". If you looked at her profile from a distance,
+                    you may think you were looking at 's page. Hyper's style truly knows no bounds, releasing anything from hardstyle that 
+                    will melt your face off to absolute bangers and ass shakers.
+                    <br/><br/>For business, booking, and all other inquiries, please send an email to contact@hyperpup.pet
                     </Bio>
                 </Content>
 
                 <PressPhoto>
                     <div>
-                        <Photo src="./assets/press/hyperpup1.jpg" />
+                        <Photo src="./assets/pfp.png" />
                     </div>
                     
                 </PressPhoto>

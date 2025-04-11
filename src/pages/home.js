@@ -9,6 +9,7 @@ export default function Home() {
     return (
         <div>
             <Header/><br/>
+            <About /><br/>
             <NewReleases /><br/>
             <TourDates /><br/>
             <Footer />
