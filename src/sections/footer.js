@@ -22,7 +22,7 @@ export default function Footer() {
                 />
                 <MediaButton 
                     platform={"Discord"}
-                    href={"https://discord.gg/FUuvFfwkCz"}
+                    href={"https://discord.gg/5nBQMAC4"}
                     height={"25px"}
                 />
                 
