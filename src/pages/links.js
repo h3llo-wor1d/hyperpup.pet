@@ -54,7 +54,7 @@ export default function Links() {
                 />
                 <SocialButton 
                     name="Discord"
-                    url="https://discord.gg/FUuvFfwkCz"
+                    url="https://discord.gg/5nBQMAC4"
                     color="#5865F2"
                 />
                 <br/>
