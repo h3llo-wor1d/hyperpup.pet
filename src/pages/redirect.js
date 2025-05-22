@@ -15,14 +15,18 @@ export default function Redirect(props) {
         res[parts[0]] = parts[1];
         return res;
         }, {});
-        localStorage.setItem("discordtoken", result.access_token);
-        /*let f1 = await fetch("https://discord.com/api/v10/users/@me", {
-            headers: {
-                Authorization: `Bearer ${result.access_token}`
-            }
-        })
-        let f2 = await f1.json()
-        console.log(JSON.stringify(f2, null, 4));*/
+        let f1 = await fetch("http://localhost:3001/create-account", 
+        {method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({token: result.access_token})
+        });
+        let f2 = await f1.json();
+        if (f2.status === 200) {
+            console.log(f2)
+            localStorage.setItem("hypertoken", f2.message.token);
+            localStorage.setItem("discordid", f2.message.id);
+        }
+        
         setSafe("You may now close this window.");
     }
 

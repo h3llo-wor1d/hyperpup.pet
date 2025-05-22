@@ -3,15 +3,16 @@ import { useParams } from "react-router-dom";
 import Login from "../sections/login";
 import { useEffect, useState } from "react";
 import { Flex } from "antd";
+import QRCode from "react-qr-code";
 
 export default function Tickets(props) {
     const { event } = useParams();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isTicketPaid, setIsTicketPaid] = useState(false);
-    const [userDetails, setUserDetails] = useState([]);
+    const [ticketHash, setTicketHash] = useState(false);
+    const [eventData, setEventData] = useState([]);
 
     function createOrder() {
-        return fetch("http://localhost:30014/create-ticket", {
+        return fetch("https://api.hyperpup.pet/create-ticket", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,65 +31,101 @@ export default function Tickets(props) {
             .then((order) => order.id);
     }
 
-    useEffect(() => {
-        if (typeof(localStorage.getItem("discordtoken")) === "string") {
-            setIsLoggedIn(true);
-            fetch("https://discord.com/api/v10/users/@me", {
+    const initLogic = async () => {
+        let g1 = await fetch('https://raw.githubusercontent.com/h3llo-wor1d/static.hyperpup.pet/refs/heads/main/events.json')
+        let g2 = await g1.json();
+        
+        if (g2.events.filter(e => e.id === event).length === 0) {
+            window.location = "/404"
+        } else {
+            setEventData(g2.events.filter(e => e.id === event)[0])
+        }
+
+        
+
+        let f1 = await fetch('https://api.hyperpup.pet/read-account',
+        {
+            method: "POST",
             headers: {
-                Authorization: `Bearer ${localStorage.getItem("discordtoken")}`
-            }
-        }).then(result => result.json())
-        .then(out => {
-            console.log(JSON.stringify(out, null, 4))
-            setUserDetails([`https://cdn.discordapp.com/avatars/${out.id}/${out.avatar}.webp`, out.global_name])
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userid: localStorage.getItem("discordid"), 
+                token: localStorage.getItem("hypertoken")
+            })
         })
+        let f2 = await f1.json();
+        if (f2.message.ticketStorage.filter(i => i.event == event).length !== 0) {
+            console.log("Event found!");
+            setTicketHash(f2.message.ticketStorage.filter(i => i.event == event)[0].ticketHash);
+        }
+        setIsLoggedIn(true);
+    }
+
+    useEffect(() => {
+        if (typeof(localStorage.getItem("hypertoken")) === "string") {
+            initLogic();
         }
     }, [])
 
     function onApprove(data) {
-          return fetch("/my-server/capture-paypal-order", {
+          return fetch("https://api.hyperpup.pet/capture-ticket", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              orderID: data.orderID
+              orderID: data.orderID,
+              orderEvent: event,
+              userID: localStorage.getItem("discordid")
             })
           })
           .then((response) => response.json())
           .then((orderData) => {
-                const name = orderData.payer.name.given_name;
-                alert(`Transaction completed by ${name}`);
+            try {
+                if (orderData.ticketHash !== undefined) {
+                    setTicketHash(orderData.ticketHash);
+                }
+            } catch {
+                console.log("Error setting event!")
+            }
           });
 
     }
 
     return (
-        isLoggedIn ?
-            isTicketPaid ?
-            <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px", flexDirection: "column"}}>
-                placeholder for paid tickets!
-            </Flex> :
-
+            isLoggedIn ?
             <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px", flexDirection: "column"}}>
                 <div style={{width: "500px"}}>
                     <div style={{height: "200px", width: "500px", overflow: "hidden", position: "relative", marginBottom: "10px"}}>
-                        <img src="https://cdn.prod.website-files.com/66a5d1be7d8d11df6dcbcd78/678e9943660850e0f620fe32_IMG_1199.jpg" alt="venueImage" width="100%" />
-                        <img src={userDetails[0]} alt="userPFP" style={{borderRadius: "1000px", border: "solid 4px #121212", position: "absolute", zIndex: "999", top: 0, right: 0}} height="75px"/>
-                        <div style={{height: "50px", width: "50px", position: "absolute", zIndex: "998", top: 0, right: 0, backgroundColor: "#121212"}}></div>
+                        <img src={eventData.details.venueImage} alt="venueImage" width="100%" />
+                        {/*<img src={userDetails[0]} alt="userPFP" style={{borderRadius: "1000px", border: "solid 4px #121212", position: "absolute", zIndex: "999", top: 0, right: 0}} height="75px"/>
+                        <div style={{height: "50px", width: "50px", position: "absolute", zIndex: "998", top: 0, right: 0, backgroundColor: "#121212"}}></div>*/}
                     </div>
-                    HYPERPUP PRESENTS: FURCON5<br/>
-                    BLACK BOX @ THE SUPERMARKET ATL<br/>
-                    9:00PM EST TO 1:00AM EST<br/>
-                    MONDAY, JUNE 30TH 
+                    {eventData.details.name}<br/>
+                    {eventData.details.location}<br/>
+                    {eventData.details.time}<br/>
+                    {eventData.details.date}
                 </div>
+                {
+                ticketHash ?
+                <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px", flexDirection: "column"}}>
+                    <div style={{textAlign: "center"}}>
+                    Your ticket(s) for the upcoming FURCON5 event
+                    </div>
+                    <QRCode value={ticketHash} />
+                    <div style={{textAlign: "center"}}>
+                    DO NOT SHARE THIS QR CODE WITH ANYONE UNLESS IF YOU SELL IT!
+                    </div>
+                </Flex> :
                 <div style={{width: "500px"}}>
-                    <PayPalScriptProvider options={{ clientId: "AQglNapVm-GbRIxKrouwrgUlL3pCmKTyyrZlLxKF9J23bHZ0YIU-OSFFi7xwm4dofzTYWVgjWl1wkLQT", currency: "USD", intent: "capture"}}>
+                    <PayPalScriptProvider options={{ clientId: "ARNS0hchUCLifh1BT_lNT1J8dgsFjkjma9E2a5nRpD34FKVZqdkApyJIIq2aCPsKN-EhMfaSmpAcM-fg", currency: "USD", intent: "capture"}}>
                         <PayPalButtons
                             createOrder={createOrder}
                             onApprove={onApprove} />
                     </PayPalScriptProvider>
                 </div>
+                }
             </Flex>
         :
 
