@@ -1,4 +1,9 @@
 @font-face {
+    font-family: "Roobert";
+    src: url("./fonts/roobert.ttf");
+}
+
+@font-face {
     font-family: Silkscreen Regular;
     src: url("./fonts/Silkscreen-Regular.ttf");
 }
@@ -38,4 +43,25 @@ body, html {
     color: #fff;
     font-family: Red Hat;
     margin: 0;
+}
+
+.socialLoginButton {
+    width: 345px;
+    height: 54px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 3 #000) drop-shadow(0 2 3 #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roobert";
+    font-size: 20px;
+}
+
+.socialLoginButton:hover {
+    opacity: .75;
+    cursor: pointer;
+}
+
+.socialLoginButton img {
+    filter: brightness(0) invert(1);
 }
