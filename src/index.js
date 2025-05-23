@@ -11,6 +11,9 @@ import Links from './pages/links';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Release from './pages/releasepage';
 import NotFound from './pages/404';
+import Tickets from './pages/tickets';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import Redirect from './pages/redirect';
 
 const router = createBrowserRouter([
   {
@@ -28,14 +31,22 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <NotFound />
+  },
+  {
+    path: "/t/:event",
+    element: <Tickets />
+  },
+  {
+    path: "/redirect",
+    element: <Redirect />
   }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ParallaxProvider>
-      <RouterProvider router={router} />
-    </ParallaxProvider>
+      <ParallaxProvider>
+        <RouterProvider router={router} />
+      </ParallaxProvider>
   </React.StrictMode>
 );
