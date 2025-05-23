@@ -96,8 +96,8 @@ export default function Tickets(props) {
     return (
             isLoggedIn ?
             <Flex align="center" justify="center" gap="30px" style={{"overflowX": "auto", padding: "20px", flexDirection: "column"}}>
-                <div style={{width: "500px"}}>
-                    <div style={{height: "200px", width: "500px", overflow: "hidden", position: "relative", marginBottom: "10px"}}>
+                <div style={{width: "500px", maxWidth: "100%"}}>
+                    <div style={{height: "200px", width: "500px", maxWidth: "100%", overflow: "hidden", position: "relative", marginBottom: "10px"}}>
                         <img src={eventData.details.venueImage} alt="venueImage" width="100%" />
                         {/*<img src={userDetails[0]} alt="userPFP" style={{borderRadius: "1000px", border: "solid 4px #121212", position: "absolute", zIndex: "999", top: 0, right: 0}} height="75px"/>
                         <div style={{height: "50px", width: "50px", position: "absolute", zIndex: "998", top: 0, right: 0, backgroundColor: "#121212"}}></div>*/}

@@ -15,7 +15,7 @@ export default function Redirect(props) {
         res[parts[0]] = parts[1];
         return res;
         }, {});
-        let f1 = await fetch("http://localhost:3001/create-account", 
+        let f1 = await fetch("https://api.hyperpup.pet/create-account", 
         {method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({token: result.access_token})
