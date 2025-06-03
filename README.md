@@ -14,4 +14,4 @@
 * [Leander](https://www.dafont.com/leander.font)
 
 ## Note from the author
-All components were designed from scratch in 48 hours. No design libraries (i.e. figma) were used to prototype the design beforehand. This repository is for reference only.
+(Almost) all components are designed from scratch. No design tools (i.e. figma) were used to prototype the design beforehand. This repository is for reference only.
