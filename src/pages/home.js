@@ -1,18 +1,22 @@
-import Header from "../components/Header"
-import About from "../sections/about"
-import Footer from "../sections/footer"
-import NewReleases from "../sections/newreleases"
-import TourDates from "../sections/tourdates"
+import styled from "styled-components"
 
 export default function Home() {
-    
+    const LayoutContent = styled.div `
+    width: 95%;
+    text-align: center;
+    height: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25pt;
+    user-select: none;
+    `
     return (
-        <div>
-            <Header/><br/>
-            <About /><br/>
-            <NewReleases /><br/>
-            <TourDates /><br/>
-            <Footer />
+        <div style={{position: "relative", height: "100vh"}}>
+            <LayoutContent>
+            ... try another time?
+            </LayoutContent>
         </div>
     )
 }
