@@ -9,4 +9,6 @@ body, html {
     color: #fff;
     font-family: "mysims";
     margin: 0;
+    position: relative;
+    height: 100vh;
 }

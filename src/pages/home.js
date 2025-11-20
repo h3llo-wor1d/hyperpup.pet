@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Loop1 from '../audio/whenami.wav';
 import Player from "../components/player";
+import { useEffect } from "react";
 
 export default function Home() {
     const LayoutContent = styled.div `
@@ -14,8 +15,13 @@ export default function Home() {
     font-size: 25pt;
     user-select: none;
     `
+
+    useEffect(() => {
+        document.title = "when am i?"
+    }, [])
+    
     return (
-        <div style={{position: "relative", height: "100vh"}}>
+        <div style={{height: "100vh", position: "relative"}}>
             <LayoutContent>
                 <Player src={Loop1} />
             </LayoutContent>
