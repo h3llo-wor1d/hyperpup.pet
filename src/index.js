@@ -12,7 +12,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 
 const router = createBrowserRouter([
   {
-    path: "*",
+    path: "/",
     element: <Home />,
   }
 ]);
