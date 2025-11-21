@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Loop1 from '../audio/whenami.wav';
 import Player from "../components/player";
 import { useEffect } from "react";
 
@@ -23,7 +22,7 @@ export default function Home() {
     return (
         <div style={{height: "100vh", position: "relative"}}>
             <LayoutContent>
-                <Player src={Loop1} />
+                <Player src={"./audio/whenami.wav"} />
             </LayoutContent>
         </div>
     )
