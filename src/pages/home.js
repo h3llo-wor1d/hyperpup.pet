@@ -22,7 +22,7 @@ export default function Home() {
     return (
         <div style={{height: "100vh", position: "relative"}}>
             <LayoutContent>
-                <Player src={"./audio/whenami.wav"} />
+                <Player src={"/audio/whenami.wav"} />
             </LayoutContent>
         </div>
     )
