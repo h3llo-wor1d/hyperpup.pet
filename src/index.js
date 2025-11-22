@@ -9,11 +9,16 @@ import './style/index.css';
 
 // currently unused
 import { ParallaxProvider } from 'react-scroll-parallax';
+import Password from './pages/password';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/password",
+    element: <Password />
   }
 ]);
 
