@@ -1,5 +1,5 @@
 import { Button, Form, Input } from "antd"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import song from "../arg/password/song.json";
 import date from "../arg/password/date.json";
 import styled from "styled-components";
@@ -86,7 +86,7 @@ export default function Password(props) {
       }
 
 
-    const playAudio = async (secret) => {
+    const playAudio = async () => {
         if (form.getFieldValue('value').replace(" ", "") === "rawmeat") window.location="https://www.youareanidiot.cc/";
         const recoveredBase64 = await decryptBase64WithPassword(song, form.getFieldValue('value'));
         if (recoveredBase64) {
@@ -98,6 +98,7 @@ export default function Password(props) {
             });
         }  
     }
+
     const LayoutContent = styled.div `
     width: 95%;
     text-align: center;
