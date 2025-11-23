@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Player from "../components/player";
+import whenami from '../arg/whenami.json';
 import { useEffect } from "react";
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
     return (
         <div style={{height: "100vh", position: "relative"}}>
             <LayoutContent>
-                <Player src={"/audio/whenami.wav"} />
+                <Player src={whenami} />
             </LayoutContent>
         </div>
     )

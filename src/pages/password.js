@@ -91,7 +91,7 @@ export default function Password(props) {
         const recoveredBase64 = await decryptBase64WithPassword(song, form.getFieldValue('value'));
         if (recoveredBase64) {
             setDateDecrypted(await decryptBase64WithPassword(date, form.getFieldValue('value')))
-            var snd = new Audio("data:audio/wav;base64,"+recoveredBase64);
+            var snd = new Audio("data:audio/ogg;base64,"+recoveredBase64);
             snd.play();
             snd.addEventListener('ended', () => {
                 window.location.pathname = ""

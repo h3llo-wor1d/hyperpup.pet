@@ -2,9 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const CountdownTimer = ({ targetTimestampMs }) => {
-  // Calculate initial time left when the component mounts or timestamp changes
   const calculateTimeLeft = () => {
-    // Ensure the timestamp is in milliseconds if it's in seconds
     const targetTimeMs = String(targetTimestampMs).length === 10 
       ? targetTimestampMs * 1000 
       : targetTimestampMs;
@@ -25,14 +23,11 @@ const CountdownTimer = ({ targetTimestampMs }) => {
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   useEffect(() => {
-    // Update the countdown every second
     const intervalId = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-
-    // Cleanup function to clear the interval when the component unmounts or dependencies change
     return () => clearInterval(intervalId);
-  }, [targetTimestampMs]); // Re-run effect if the target timestamp changes
+  }, [targetTimestampMs]);
 
   if (timeLeft.isComplete) {
     return <div>Countdown Complete!</div>;
@@ -61,15 +56,14 @@ export default function Player({ src }) {
 
   return (
     <div>
-      {/* The <audio> element is hidden and configured to loop */}
       {active ?
       <div>
           <audio
           ref={audioRef}
-          src={src}
-          loop // This attribute makes the audio loop eternally
-          // controls attribute is omitted to hide default controls
-          style={{ display: 'none' }} // Hides the element visually
+          src={"data:audio/ogg;base64,"+src.data}
+          type="audio/ogg"
+          loop
+          style={{ display: 'none' }}
           autoPlay
         />
         <CountdownTimer targetTimestampMs={1767243600} />
@@ -79,7 +73,6 @@ export default function Player({ src }) {
         &gt;&gt; when am i? &lt;&lt;
       </PlayerRef>
       }
-      {/* User interaction element */}
     </div>
   );
 };
