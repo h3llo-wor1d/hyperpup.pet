@@ -10,6 +10,8 @@ import './style/index.css';
 // currently unused
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Password from './pages/password';
+import PianoPage from './pages/piano';
+import WhoAmI from './pages/whoami';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "/password",
     element: <Password />
+  },
+  {
+    path: "/piano",
+    element: <PianoPage />
+  },
+  {
+    path: "/whoami",
+    element: <WhoAmI />
   }
 ]);
 
