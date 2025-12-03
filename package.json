@@ -24,6 +24,7 @@
     "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
     "react-scroll-parallax": "^3.4.5",
+    "sf2-player": "^0.0.7",
     "soundfont-player": "^0.12.0",
     "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
