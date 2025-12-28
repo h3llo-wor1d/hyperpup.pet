@@ -56,23 +56,9 @@ export default function Player({ src }) {
 
   return (
     <div>
-      {active ?
       <div>
-          <audio
-          ref={audioRef}
-          src={"data:audio/ogg;base64,"+src.data}
-          type="audio/ogg"
-          loop
-          style={{ display: 'none' }}
-          autoPlay
-        />
-        <CountdownTimer targetTimestampMs={1767243600} />
+        <CountdownTimer targetTimestampMs={1767279600} />
       </div>
-         :
-      <PlayerRef onClick={handleInteraction} style={{ cursor: 'pointer'}}>
-        &gt;&gt; when am i? &lt;&lt;
-      </PlayerRef>
-      }
     </div>
   );
 };
