@@ -11,3 +11,64 @@ body, html {
     position: relative;
     height: 100vh;
 }
+
+@font-face {
+    font-family: "Roobert";
+    src: url("./fonts/roobert.ttf");
+}
+
+@font-face {
+    font-family: Silkscreen Regular;
+    src: url("./fonts/Silkscreen-Regular.ttf");
+}
+
+@font-face {
+    font-family: Red Hat;
+    src: url("./fonts/RedHat.ttf");
+}
+
+@font-face {
+    font-family: Pixel Mix;
+    src: url("./fonts/pixelmix.ttf");
+}
+
+@font-face {
+    font-family: "Thaleah Fat";
+    src: url("./fonts/ThaleahFat.ttf");
+}
+
+@font-face {
+    font-family: "Leander";
+    src: url("./fonts/Leander.ttf");
+}
+
+@font-face {
+    font-family: "Gothic Pixels";
+    src: url("./fonts/GothicPixels.ttf");
+}
+
+@font-face {
+    font-family: "VCR OSD";
+    src: url("./fonts/VCROsd.ttf");
+}
+
+.socialLoginButton {
+    width: 345px;
+    height: 54px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 3 #000) drop-shadow(0 2 3 #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roobert";
+    font-size: 20px;
+}
+
+.socialLoginButton:hover {
+    opacity: .75;
+    cursor: pointer;
+}
+
+.socialLoginButton img {
+    filter: brightness(0) invert(1);
+}
